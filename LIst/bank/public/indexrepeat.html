@@ -1,0 +1,270 @@
+<html>
+    <head><script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+
+    
+  
+  <link rel="stylesheet" type="text/css" href="customer_page.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+<script type="text/javascript">
+    var idleTime = 0;
+  
+    $(document).ready(function () {
+        //Increment the idle time counter every minute.
+        var idleInterval = setInterval(timerIncrement, 100); // 1 minute
+    
+        //Zero the idle timer on mouse movement.
+        $(this).mousemove(function (e) {
+            idleTime = 0;
+        });
+        $(this).keypress(function (e) {
+            idleTime = 0;
+        });
+        
+    });
+    
+    function timerIncrement() {
+        
+        idleTime = idleTime + 1;
+        
+        
+        if (idleTime>10){
+           $(".advert").css("display","block")
+           
+        }else{
+            $(".advert").css("display","none")
+        }
+    }
+    </script>   
+    <style>
+        .visible{
+            display:block;
+        }
+        .advert{
+            display:none;
+            background-position: cover;
+            background-color: cornsilk;
+            color:rgb(10,100,140);
+            position:absolute;
+            top:0;
+            left:0;
+            margin-left: 0;
+            margin-bottom: 0;
+            margin-right: 0;
+            margin-top:0%;
+            padding:0;
+            width:100%;
+            height:100vh;
+
+        }
+    </style>
+    <div class="advert">  
+        <div class="fling-minislide">
+            <img src="./img/img2.jpg" style="">
+            <img src="./img/img3.jpg" style="">
+            <img src="./img/img6.png" style="">
+            <img src="./img/help.jpg" style="">
+            <img src="./img/img.png" style="">
+        </div>
+    </div>
+</head>
+<body>
+   
+</div> <div><div class="menu-bar">
+
+<ul>
+  <li class="active"><a href="#">Personal banking</a>   
+   <div class="sub-menu-1">
+      <ul>
+        <li class="hover-me"><a href="#">Accounts</a><i class="fa fa-angle-right"></i>
+          <div class="sub-menu-2">
+            <ul>
+              <li><a href="/form_opening">Open Account</a></li>
+              <li><a href="/acct_balance">statement of Accounts</a></li>
+              <li><a href="#">Deactivate Account</a></li>
+              <li><a href="/acc_reactivation">Reactivate Accounts</a></li>
+              <li><a href="/acct_balance">Check Account balance</a></li>
+              <li></li>
+            </ul>
+          </div>
+
+
+        </li>
+          <li class="hover-me"><a href="#">Card Services</a><i class="fa fa-angle-right"></i>
+            <div class="sub-menu-2">
+              <ul>
+                <li><a href="/card_request">Card request</a></li>
+                <li><a href="#">Card dispense error</a></li>
+                <li><a href="card_request">Card replacement</a></li>
+                <li><a href="#">Card/pin form</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="hover-me"><a href="#">BVN</a><i class="fa fa-angle-right"></i>
+            <div class="sub-menu-2">
+              <ul>
+                <li><a href="#">get BVN</a></li>
+                <li><a href="#">Link BVN to other account</a></li>
+                
+              </ul>
+            </div>
+          </li>
+          <li><a href="#">Business Banking</a></li>
+          <li><a href="#">About GTBank</a></li>
+          <li></li>
+         
+    
+      </ul>
+    
+    </div>
+
+
+
+
+  </li>
+ <li>
+  <a href="#">Business Banking</a>
+
+     <div class="sub-menu-1">
+      <ul>
+          <li><a href="#">home</a></li>
+          <li><a href="#">home</a></li>
+          <li><a href="#">home</a></li>
+          <li><a href="#">home</a></li>
+      </ul>
+    </div>
+  </li>
+  <li><a href="#">About GTBank</a></li>
+  <li><a href="#">Investor Relations</a></li>
+         
+ 
+</div>
+</div>
+  
+</ul>
+</div>
+
+
+
+    
+  </div>
+</div>
+
+
+<br><br><br><br><br>
+
+<div class="oooo"> <img class="pic" src="./img/img6.png" height="100px" width="200px"></div>
+
+ 
+ <section id="showcase"  style="background-image: url(./img/.png)">
+ 
+ 
+      <div class="container">
+
+        <p>
+
+</p>
+      </div>
+  <aside id="sidebar">
+          <div class="dark">
+            <h1>Quick Help</h3>
+              <p>Select from out FAQ</p>
+            <form class="quote">
+              <div>
+                <div class="col-75">
+          <select id="country" name="country">
+              <option value="0">FAQ</option>
+            <option selected="selected" value="2">Current</option>
+            <option value="5">Open Account</option>
+            <option value="7">Account statement</option>
+            <option value="3">Card error form</option>
+            <option value="4">Dispense error form</option>
+           </select>
+        </div>
+          </form>
+          </div>
+        </aside>
+      </div>
+
+</div>
+<section id="newsletter">
+      <div class="container">
+        
+        <form>
+          <h1>Subscribe To Our Newsletter</h1>
+          <input type="email" placeholder="Enter Email...">
+          <button class="button_1"  type="submit" class="button_1">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </form></section>
+
+    <section id="boxes">
+      <div class="container">
+
+<div class="gallery">
+  <a target="_blank" href="img_5terre.jpg">
+    <img src="./img/Art.png" alt="5Terre" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img_forest.jpg">
+    <img src="./img/Art2.png" alt="Forest" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img_lights.jpg">
+    <img src="./img/Art3.png" alt="Northern Lights" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img_mountains.jpg">
+    <img src="./img/Art5.png" alt="Mountains" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+    </article>
+
+
+
+    </section>
+
+</body>
+
+
+    <footer>
+      <p>gtbank Copyright &copy; 2020</p>
+    </footer>
+
+</html>
+
+<div class="modal4">
+  <a href="#modal" class="modal-open">Online Banking</a>
+<div class="modal" id="modal">
+<div class="modal__content">
+<a href="#" class="modal__close">&times;</a>
+<div class="bg-modal">
+  <div class="modal-content">
+  
+<form>
+login form    
+</form>
+</div>
+    
+</body>
+</html>

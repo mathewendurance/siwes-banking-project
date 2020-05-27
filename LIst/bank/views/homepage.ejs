@@ -1,0 +1,36 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User login</title>
+	<link rel="stylesheet" type="text/css" href="form.css">
+	
+</head>
+
+
+
+
+<body>
+<p class="">Admin: <%= username %> logged in</p>
+<a href="/admin/logout">Admin Logout</a>
+<div class="sign-in-form">
+	<img src="download.jfif">
+	<h1> User  Login</h1>
+	<form action="/user/login" method="POST">
+		<input class="input-box" type="text" name="username" placeholder="Username">
+		<input class="input-box" type="password" name="password" placeholder="password">
+		<p><span><input type="checkbox"></span> Remember me</p>
+		<input class="btn" type="submit" value="Sign in">
+	</form>
+
+	</form>
+</div>
+<footer><p class="foter">&copy; 2017-2020</p></footer>
+
+
+</body>
+</html>
+
+
+

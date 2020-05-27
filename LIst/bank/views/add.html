@@ -1,0 +1,41 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Access Backend</title>
+	<link rel="stylesheet" type="text/css" href="form.css">
+	
+</head>
+
+
+
+
+<body>
+<p>Admin access backend.</p>
+<p>Add and remove users</p>
+<p class="">Admin: <%= username %> logged in</p>
+<a href="/admin/logout">Admin Logout</a>
+<a href="/list">User list</a>
+<a href="/add">adghgd</a>
+
+<div class="sign-in-form">
+	<img src="download.jfif">
+	<h1> Addsers</h1>
+	<form action="/admin/user/add" method="POST">
+		<input class="input-box" type="text" name="username" placeholder="Username">
+		<input class="input-box" type="password" name="password" placeholder="password">
+
+		<input class="btn" type="submit" value="Add">
+	</form>
+
+	</form>
+</div>
+<footer><p class="foter">&copy; 2017-2020</p></footer>
+
+
+</body>
+</html>
+
+
+

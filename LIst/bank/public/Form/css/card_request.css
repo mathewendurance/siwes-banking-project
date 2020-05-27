@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffff;
+}
+img{
+float: right;
+margin-top: -20px;
+}
+
+.logo {
+    list-style-type: none;
+    margin-left: 150px;
+
+   
+    padding: 0;
+    overflow: hidden;
+    background-color: #DF5000;
+    width:110px;
+    border-radius:30px;
+
+    
+}
+
+.logo li a, .dropbtn {
+    display:block;
+    text-align: center;
+    padding: 19px 21px;
+    text-decoration: none;
+    font-size: 18px;
+    color:white;
+}
+
+.logo li a:hover, .dropdown:hover .dropbtn {
+    background-color:orange;
+}
+
+
+/* Style the header */
+header {
+    margin-top: 40px;
+    background-color: #f2f2f2;
+    padding: 30px;
+    text-align: center;
+    border-spacing: 10px;
+   
+}
+h1{
+    color: black;
+    font-size: 36px;
+    margin-top: -5px;
+}
+p{
+    font-size: 16px;
+    color: #4A4A4A;
+    text-align: center;
+    line-height: 1.5;
+}
+section{
+    background-color: #f2f2f2;
+}
+
+article {
+    float: left;
+    padding: 20px;
+    width: 100%;
+    background-color: #f2f2f2;
+    height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+    content: "";
+    display: table;
+    clear: both;
+     background-color: #f2f2f2
+}
+
+/* Style the footer */
+footer {
+    background-color:#f2f2f2;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+    nav, article {
+        width: 100%;
+        height: auto;
+    }
+}
+input[type=text], select, textarea {
+    width: 110%;
+    padding: 20px;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    resize: vertical;
+    color: #4A4A4A;
+    font-size: 16px;
+}
+input[type=email]{
+    width: 110%;
+    padding: 20px;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    resize: vertical;
+    color: #4A4A4A;
+    font-size: 16px;
+}
+input[type=password]{
+    width: 110%;
+    padding: 20px;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    resize: vertical;
+    color: #4A4A4A;
+    font-size: 16px;
+}
+
+label {
+    padding: 12px -1px 12px 0px;
+    display: inline-block;
+    margin-left:80px; 
+
+}
+
+input[type=submit] {
+    background-color: #DF5000;;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    float: right;
+    width:100%;
+    font-size: 16px;
+}
+
+
+input[type=submit]:hover {
+    background-color:grey;
+}
+.container {
+    border-radius: 5px;
+    background-color: #ffff;
+    padding: 20px;
+    width: 75%;
+    margin-left: 170px;
+}
+
+.name {
+    float: left;
+    width: 30%;
+    margin-top: 20px;
+    color: #4A4A4A;
+
+}
+
+.col-75 {
+    float: left;
+    width: 70%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}  
+
+form{
+    width: 75%;
+}
+.title{
+  color: #4A4A4A;
+    text-align:left;
+    line-height: 1.5;
+}
+.row-2{
+    width: 100px;
+    margin-left: 810px;
+    margin-top: -48px;
+    background-color: #DF5000;
+}
+
+
+.row-3{
+    width: 200px;
+   margin-left: 410px;
+    margin-top: 35px;
+   
+    border-radius: 15px;
+}
+.star{
+     margin-left: 810px;
+   
+}
+
+
+
+.valid{
+    text-align:center;
+    padding-right: 300px;
+    margin-left: 270px;
+    margin-top: -280px;
+    color: red;
+   
+}
+
+.ser{
+    margin-top: -120px;
+}
+
+.ser1{
+    color: #DF5000;
+
+}
+input.larger { 
+      transform: scale(3.3); 
+      margin: 25px;
+      

@@ -1,0 +1,113 @@
+jQuery(function(n){n("form:has(:hidden[value='https://www.gtbank.com/hubcredit-submitted'])").on("submit",function(e){if(n("input[name=validated]").length)return!0;if(!n("input[name^=acceptTermsConditions]").length||!n("input[name^=acceptTermsConditions]").prop("checked"))return alert("You must accept the Terms and Conditions"),!1;var i=n(this);return n(".alert").remove(),n("button[type=submit]",i).prop("disabled",!0),n.ajax({url:"/php-bin/hubcredit.00.php?cb="+Math.random(),type:"post",dataType:"json",data:n(this).serialize(),success:function(e){if(e.success&&e.finished){var t=i;t.append("<input name'validated' id='validated' type='hidden' />"),setTimeout(function(){t[0].submit()},500)}else{var a=n("<div>",{class:"alert alert-danger"}).append("<p>"+e.msg+"</p>",{class:"lead"});i.before(a),n("button[type=submit]",i).prop("disabled",!1)}}}),!1})});
+
+function ready(e){"loading"!=document.readyState?e():document.addEventListener("DOMContentLoaded",e)}ready(function(){if($("body.entry-complaints-enquiries").length){$.ajaxSetup({cache:!1});document.getElementById("nav-enquiry-request"),document.getElementById("nav-complaints");function n(e,n){var t=$(e).prop("placeholder");n?($(e).prop("placeholder",t.replace(/\*+$/,"")+"*"),$(e).attr("required","required")):($(e).prop("placeholder",t.replace(/\*+$/,"")),$(e).removeAttr("required"))}function t(e,n){var t=$(e).parents("div.row:first");n?t.hide():t.show()}function o(e,n){n?($(e).attr("readonly","readonly"),$(e).prop("readonly",!0)):($(e).removeAttr("readonly"),$(e).removeProp("readonly"))}function a(e){return'<p style="font-size:13px; top:-20px; position:relative; margin:0; display:inline-block; padding: 7px 9px; color: #5f2726; background-color: #f2dede; border-color: #ebccd1;" class="alert-notice">'+e+"</p>"}var e=document.getElementById("nav-escalation-form"),r=$("select[name=touchPointVisited]",e),c=$("input[name=requestID]",e),i=$("select[name=branch]",e),u=$("input[name=sbranch]",e),l=($("input[name=yourMobileNumber]",e),$("input[name=yourEmailAddress]",e),$("input[name=yourGTBankAccountNumber]",e)),m=$("input[name=yourName]",e),p=$("button[name=form_page_submit]",e);t(i,!0),t(c,!0),$(document).on("blur","#nav-escalation-form #form-input-yourGTBankAccountNumber",function(){event.target.matches("#nav-escalation-form #form-input-yourGTBankAccountNumber")&&""!=l.val().trim()&&function(e){var n,t=e.trim();o(p,!0),$(m).val("Retrieving your Account Name..."),o(m,!0),$(l).parents(".col:eq(0)").find("p.alert-notice").remove(),t&&(n={ac:t},$.ajax({dataType:"json",method:"POST",url:"/php-bin/complaints.03.php?_="+Math.random(),data:n}).done(function(e){"00"==e.rc?$(m).val(e.acm):$(l).parents(".col:eq(0)").append(a(e.rd.split("-")[1].trim()))}).fail(function(){$(l).parents(".col:eq(0)").append(a("Error validating Account Number. Please check your internet connection and try again. If error persists, please try again later")),o(m,!1),$(m).removeAttr("readonly"),$(m).removeProp("readonly"),$(m).val(""),console.log(arguments)}).always(function(){o(p,!1)}))}(l.val())}),$(document).on("focus","#nav-escalation-form #form-input-yourGTBankAccountNumber",function(){event.target.matches("#nav-escalation-form #form-input-yourGTBankAccountNumber")&&$(l).parents(".col:eq(0)").find("p.alert-notice").remove()}),r.on("change",null,function(e){-1<["Email","GTConnect (Contact Center)"].indexOf(this.value)?(n(c,!0),t(c,!1)):(n(c,!1),t(c,!0)),"Branches"==this.value?t(i,!1):t(i,!0),$("p.alert-notice").remove()}),i.on("change",null,function(e){u.val(i.val())}),$.getJSON("/branches.json",null,function(e){var t=[];$.each(e,function(e,n){t.push(n.state+" - "+n.location)}),t.sort(),$.each(t,function(e,n){var t=document.createElement("option");t.text=n,t.value=n,i.get(0).add(t)})})}});
+
+ready(function(){if($("body.entry-quick-credit").length){var n=function(n){var e;n.matches?(e=document.querySelector(".col-banner-content > a:nth-child(2n)"))&&(e.style.display="none"):(e=document.querySelector(".col-banner-content > a:nth-child(2n)"))&&(e.style.display="inline-block")};if(window.matchMedia){const e=window.matchMedia("(min-width: 768px)");e.addListener(n),n(e)}}});
+
+ready(function(){if($("#form-input-gens_accnum").length){$.ajaxSetup({cache:!1});var e=document.getElementById("form-input-gens_accnum"),t=document.getElementById("form-input-gens_em"),n=document.getElementById("form-input-gens_token"),r=$(e).parents("form").get(0),o=$("button.btn",r).get(),a=function(e,t){t?($(e).attr("readonly","readonly"),$(e).prop("readonly",!0)):($(e).removeAttr("readonly"),$(e).removeProp("readonly"))},c=function(e){return'<p style="font-size:15px; top:-20px; position:relative; margin:0; display:inline-block; padding: 15px 10px; color: #5f2726; background-color: #f2dede; border-color: #ebccd1;" class="alert-notice">'+e+"</p>"};$(r).on("submit",function(l){var d,p=e.value.trim(),i=t.value.trim(),s=n.value.trim();if(p&&i&&s)return a(e,!0),a(t,!0),a(n,!0),a(o,!0),$(o).parents(".col:eq(0)").find("p.alert-notice").remove(),d={ac:p,em:i,tk:s},$.ajax({dataType:"json",method:"POST",url:"/php-bin/gens.04.php?_="+Math.random(),data:d}).done(function(e){console.log(arguments),console.log("$r",e);var t=e.status;switch(e.msg,t){case 200:"00"==e.data.rc?r.submit():$(o).parents(".col:eq(0)").prepend(c(e.data.rd?e.data.rd:"An error occured! Your request cannot be processed at this time"));break;default:$(o).parents(".col:eq(0)").prepend(c(e.data.rd))}}).fail(function(){$(o).parents(".col:eq(0)").prepend(c("An error occured. Please try again. If error persists, please try again later")),console.log(arguments)}).always(function(){a(e,!1),a(t,!1),a(n,!1),a(o,!1)}),l.preventDefault(),!1})}});
+
+ready(function(){if($("#form-input-formPageID").length&&"5A3F817B-176B-4A07-BEDC-7A2A475125FF"==$("#form-input-formPageID").val()){$.ajaxSetup({cache:!1});var n=document.querySelector(".block-content-section"),i=document.getElementById("form-input-fn_hidden"),r=document.getElementById("form-input-ln_hidden"),d=document.getElementById("form-input-em_hidden"),l=document.getElementById("form-input-survey_token"),e=$("form",n).get(0),s=$("button.btn:submit",e).get(0),u=function(){$(".loading",n.parentElement).find("p").html("Error loading data... Redirecting you to the Home Page."),setTimeout(function(){document.location.href="https://gtbank.com"},2e3)},c=function(e){var t=document.createRange().createContextualFragment("<div class='loading'><p>Initializing survey. Please wait...</p></div>");(e=e||0)?(n.style.opacity=1,n.parentElement.style.position=null,$(".loading",n.parentElement).remove()):(n.style.opacity=.05,n.parentElement.style.position="relative",n.parentElement.prepend(t))},m=function(e,t){t?($(e).attr("disabled","disabled"),$(e).prop("disabled",!0)):($(e).removeAttr("disabled"),$(e).removeProp("disabled"))};n&&i&&r&&d&&l&&e&&s&&(m(s,!0),c(0),void 0!==p()._uid?$.ajax({dataType:"json",method:"GET",url:"https://europe-west1-gtbank-gens.cloudfunctions.net/api/survey/v1/customer?uid="+p()._uid}).done(function(e,t,n){e.status;var o=e.data,a=e.msg;switch(t){case"success":0!=o.error?(i.value=o.first_name,r.value=o.last_name,d.value=o.email,l.value=p()._uid,m(s,!1),c(1)):($(s).parents(".col:eq(0)").prepend(getNotice(e.data.rd?e.data.rd:"An error occured! Your request cannot be processed at this time")),console.log(a));break;default:u()}}).fail(function(){console.log(arguments)}).always(function(){m(s,!1),c(1)}):document.location.href="https://www.gtbank.com")}function p(e){var t=e?e.split("?")[1]:window.location.search.slice(1),n={};if(t)for(var o=(t=t.split("#")[0]).split("&"),a=0;a<o.length;a++){var i=o[a].split("="),r=void 0,d=i[0].replace(/\[\d*\]/,function(e){return r=e.slice(1,-1),""}),l=void 0===i[1]||i[1];d=d.toLowerCase(),l=l.toLowerCase(),n[d]?("string"==typeof n[d]&&(n[d]=[n[d]]),void 0===r?n[d].push(l):n[d][r]=l):n[d]=l}return n}});
+
+ready(function () {
+
+    if ( !$( '#form-input-formPageID' ).length || $( '#form-input-formPageID' ).val() != "5A3F817B-176B-4A07-BEDC-7A2A475125FF"  )
+        return;
+
+    $.ajaxSetup({
+        cache: false
+    });
+
+    var _div = document.querySelector('.block-content-section');
+    // var _fn = document.getElementById("form-input-fn_hidden");
+    // var _ln = document.getElementById("form-input-ln_hidden");
+    var _em = document.getElementById("form-input-em_hidden");
+    // var _tk = document.getElementById("form-input-survey_token");
+    var _form = $( "form", _div ).get(0);
+    var _btn = $( "button.btn:submit", _form ).get(0);
+
+    var isChecking = !!0;
+
+    var init = function() {
+
+        // console.log( _div, _fn, _ln, _em, _tk, _form, _btn );
+        // if ( !_div || !_fn || !_ln || !_em || !_tk || !_form || !_btn )
+        if ( !_div || !_em || !_form || !_btn ) {
+            document.location.href = "https://www.gtbank.com";
+            return;
+        }
+
+        // fetch customer details, only if a valid "UID" URL parameter was passed
+        if ( "undefined" == typeof getAllUrlParams()._uid || getAllUrlParams()._uid == "" || !getAllUrlParams()._uid ) {
+            document.location.href = "https://www.gtbank.com";
+            return;
+        }
+
+        _em.value = decodeURIComponent( getAllUrlParams()._uid );
+
+    }
+
+    function getAllUrlParams(url) {
+
+        // get query string from url (optional) or window
+        var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+      
+        // we'll store the parameters here
+        var obj = {};
+      
+        // if query string exists
+        if (queryString) {
+      
+          // stuff after # is not part of query string, so get rid of it
+          queryString = queryString.split('#')[0];
+      
+          // split our query string into its component parts
+          var arr = queryString.split('&');
+      
+          for (var i=0; i<arr.length; i++) {
+            // separate the keys and the values
+            var a = arr[i].split('=');
+      
+            // in case params look like: list[]=thing1&list[]=thing2
+            var paramNum = undefined;
+            var paramName = a[0].replace(/\[\d*\]/, function(v) {
+              paramNum = v.slice(1,-1);
+              return '';
+            });
+      
+            // set parameter value (use 'true' if empty)
+            var paramValue = typeof(a[1])==='undefined' ? true : a[1];
+      
+            // (optional) keep case consistent
+            paramName = paramName.toLowerCase();
+            paramValue = paramValue.toLowerCase();
+      
+            // if parameter name already exists
+            if (obj[paramName]) {
+              // convert value to array (if still string)
+              if (typeof obj[paramName] === 'string') {
+                obj[paramName] = [obj[paramName]];
+              }
+              // if no array index number specified...
+              if (typeof paramNum === 'undefined') {
+                // put the value on the end of the array
+                obj[paramName].push(paramValue);
+              }
+              // if array index number specified...
+              else {
+                // put the value at that index number
+                obj[paramName][paramNum] = paramValue;
+              }
+            }
+            // if param name doesn't exist yet, set it
+            else {
+              obj[paramName] = paramValue;
+            }
+          }
+        }
+      
+        return obj;
+    }
+
+    init();
+
+});

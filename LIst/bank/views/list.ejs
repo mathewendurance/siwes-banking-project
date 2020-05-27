@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> script demo</title>
+	
+	
+</head>
+<body>
+you endurance searched for <p></p>
+
+
+
+<% users.forEach(function(user) { %>
+
+
+        <li>
+        	<%= user.user %>
+        	   ---- 
+        	   <%= user.email %>
+        	    </li>
+
+<a href='/user/delete/<%= user._id %>'><li>delete</li></a>
+
+    <% }); %>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+    <head>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+    var idleTime = 0;
+  
+    $(document).ready(function () {
+        //Increment the idle time counter every minute.
+        var idleInterval = setInterval(timerIncrement, 600); // 1 minute
+    
+        //Zero the idle timer on mouse movement.
+        $(this).mousemove(function (e) {
+            idleTime = 0;
+        });
+        $(this).keypress(function (e) {
+            idleTime = 0;
+        });
+        
+    });
+    
+    function timerIncrement() {
+        
+        idleTime = idleTime + 1;
+        
+        
+        if (idleTime>10){
+           $(".advert").css("display","block")
+           
+        }else{
+            $(".advert").css("display","none")
+        }
+    }
+    </script>   
+    <style>
+        .visible{
+            display:block;
+        }
+        .advert{
+            display:none;
+            background-color: cornsilk;
+            color:rgb(10,100,140);
+            position:absolute;
+            top:0;
+            left:0;
+         margin:0;
+         padding:0;
+            width:100%;
+            height:100vh;
+
+        }
+    </style>
+</head>
+<body>
+    <div><p>kkk</p></div>
+    <div class="advert">
+        This is the advert you asked for
+        <h3>Come and buy human hair from endurance hair co.</h3>
+    </div>
+</body>
+</html>
